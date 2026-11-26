@@ -11,10 +11,8 @@ _**Biosol is a drag-and-drop tool for biologists to analyze their genetic data i
 * Colours are white and simple red.
 ### Second page: workspace
 #### * **Right Sidebar**: containing the groups that contain the blocks for analyzing the genetic data
-![alt text](image-2.png)
 #### * **Canvas**: in the middle, a white space which you can drag-and-drop blocks into it, and connect them.
-#### * **Left Sidebar**: Biosol AI (using `openai/gpt-oss-20b`), your assistant helping you understand the data, specialized on genetics and biology using `SYSTEM_PROMPT.md`, a clear and very specific system prompt for its function and limits.
-#### * **Down**: the result appears here.
+#### * **Left Sidebar**: the result appears here, numerical data or graphs, only one result appear. Above it a run button to show the result after drag-and-drop process.
 ## Features
 **The features of the software in MVP/beta version**
 ### CSV analyzing: blocks
@@ -64,29 +62,27 @@ To ensure biological accuracy and prevent errors, blocks are not randomly connec
 
 **Rules by Block Category:**
 
-**Group 1: File Overview (The "Reporters")**
+**Group 1: File Overview**
 - **File info:** Takes 🟦 Raw Data -> Outputs 🟨 Text. 
   - *Rule:* It cannot be connected to any other block. It is a "dead end" (terminal) block.
 - **File ND:** Takes 🟦 Raw Data -> Outputs 🟨 Text.
   - *Rule:* It cannot be connected to any other block. It is a terminal block.
 
-**Group 2: Cleaning and Preparation (The "Processors")**
+**Group 2: Cleaning and Preparation**
 - **Clean column:** Takes 🟦 Raw Data -> Outputs 🟦 Processed Data.
 - **Filter genes:** Takes 🟦 Raw Data OR 🟦 Processed Data -> Outputs 🟦 Processed Data.
 - **Transform column (Log2):** Takes 🟦 Processed Data -> Outputs 🟦 Processed Data.
   - *Rule:* These three blocks are the only ones that can be chained together sequentially. 
   - *Logic Path:* `Upload -> Clean -> Filter -> Transform`. (You cannot connect Log2 *before* Clean, as you should clean raw data first. You cannot connect these to the Overview blocks).
 
-**Group 3: Data Visualization (The "Viewers")**
+**Group 3: Data Visualization**
 - **Box plot:** Takes 🟦 Processed Data -> Outputs 🟢 Visual.
 - **Correlation heatmap:** Takes 🟦 Processed Data -> Outputs 🟢 Visual.
 - **PCA plot:** Takes 🟦 Processed Data + [User Group Assignment] -> Outputs 🟢 Visual.
   - *Rule:* These blocks are "dead ends". You cannot connect a Box Plot to a DEG block. They are for visual inspection only.
 
-**Group 4: Data Analyses (The "Heavy Lifters")**
+**Group 4: Data Analyses**
 - **Differential expression (DEG):** Takes 🟦 Processed Data (highly recommended to be Log2 transformed) + [User Group Assignment] -> Outputs 🟪 DEG Table.
   - *Rule:* This block strictly requires processed, normalized data to work mathematically. 
-
-**Group 5: Analysis Visualization**
 - **Volcano plot:** Takes 🟪 DEG Table -> Outputs 🟢 Visual.
   - *Rule:* **Strict Connection:** The Volcano Plot *only* accepts the 🟪 DEG Table output. It cannot connect directly to the Uploaded CSV or the Processed Data. If the user tries to connect it to a cleaned CSV, the UI should reject the connection (or show a red error state: "Volcano Plot requires Differential Expression data").

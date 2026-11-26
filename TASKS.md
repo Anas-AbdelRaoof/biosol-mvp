@@ -19,29 +19,21 @@
 * #### 2.4.1. Differential expression (DEG) between [X] and [Y] - get [info](PLAN.md#differential-expression-deg-between-x-and-y) about `Differential expression (DEG) between [X] and [Y]` block
 * #### 2.4.2. Volcano plot using [X] and [Y] - get [info](PLAN.md#volcano-plot-using-x-and-y) about `Volcano plot using [X] and [Y]` block
 **At the end create tests on these functions, you can use `pytest` or other libraries.**
-## 3. AI Assistant Backend and `SYSTEM_PROMPT.md` 
-**Use my Groq API key from `.env` with `openai/gpt-oss-20b` as a chatbot, here are the details:**
-* **Source: [Biosol AI](PLAN.md#-left-sidebar-biosol-ai-using-openaigpt-oss-20b-your-assistant-helping-you-understand-the-data-specialized-on-genetics-and-biology-using-system_promptmd-a-clear-and-very-specific-system-prompt-for-its-function-and-limits)**
-### 3.1. Use my API key from `.env` with `Groq` and `dotenv` to make a chatbot (make it endless, I can give it questions and get answers like ChatGPT), also install these two libraries if not.
-### 3.2. Inject `SYSTEM_PROMPT.md` to the model to answer based on its rules.
-**At the end create tests on the bot, you can use `pytest` or other libraries.**
-## 4. Frontend: First Page - Uploading File
+## 3. Frontend: First Page - Uploading File
 **The first page for uploading CSV file.**
 * **Source: [First Page](PLAN.md#first-page-welcome-and-uploading-the-file)**
-### 4.1. The title **Biosol** above in the page.
-### 4.2. A red button called **Upload file** in the middle when clicking on it a list of file types appear, it's only CSV in this level, which the user can click/choose it, then the "My Computer" or the computer of the user appears to choose the file, upload only CSV and reject any other file type.
-### 4.3. The file appears beneath the file with its type and size.
-### 4.4. Another button appears called **Continue to workspace** which you can go the next page
+### 3.1. The title **Biosol** above in the page.
+### 3.2. A red button called **Upload file** in the middle when clicking on it a list of file types appear, it's only CSV in this level, which the user can click/choose it, then the "My Computer" or the computer of the user appears to choose the file, upload only CSV and reject any other file type.
+### 3.3. The file appears beneath the file with its type and size.
+### 3.4. Another button appears called **Continue to workspace** which you can go the next page
 **When the user uploads a file with this the file goes to the first part (Data Analysis Engine) to be ready for analyzing (like via `pd.read_csv()`...).**
-## 5. Frontend: Second Page - Workspace
+## 4. Frontend: Second Page - Workspace
 **The actual workspace for analysis.**
 * **Source: [Second Page](PLAN.md#second-page-workspace)**
-### 5.1. Right Sidebar - get [info](PLAN.md#-right-sidebar-containing-the-groups-that-contain-the-blocks-for-analyzing-the-genetic-data) about `Right Sidebar` part
+### 4.1. Right Sidebar - get [info](PLAN.md#-right-sidebar-containing-the-groups-that-contain-the-blocks-for-analyzing-the-genetic-data) about `Right Sidebar` part
 **Containing the groups (File overview, Cleaning and preparation, Data visualization and comparing, and Data analysis) like Scratch, each group when containing its blocks (like File info and File ND for File overview), when clicking it the blocks appear beneath it like Scratch.**
-### 5.2. Canvas - get [info](PLAN.md#-canvas-in-the-middle-a-white-space-which-you-can-drag-and-drop-blocks-into-it-and-connect-them) about `Canvas` part
+### 4.2. Canvas - get [info](PLAN.md#-canvas-in-the-middle-a-white-space-which-you-can-drag-and-drop-blocks-into-it-and-connect-them) about `Canvas` part
 **In the middle (but above) there is a white space which the user can drag-and-drop blocks into it (you can use `React Flow` and choose the suitable tool for drag-and-drop and connecting blocks/nodes).**
-### 5.3. Left Sidebar - get [info](PLAN.md#-left-sidebar-biosol-ai-using-openaigpt-oss-20b-your-assistant-helping-you-understand-the-data-specialized-on-genetics-and-biology-using-system_promptmd-a-clear-and-very-specific-system-prompt-for-its-function-and-limits) about `Left Sidebar` part
-**The Biosol AI chat window, which the user can chat it like ChatGPT (it's the GPT OSS past part).**
-### 5.4. Result Window - get [info](PLAN.md#-down-the-result-appears-here)
-**Down but in the middle the result appears, like the graphs or numerical result.**
-**Notice: we can not connect blocks randomly, the path must be `Upload -> Clean -> Filter -> Transform`, here is the [specific path](PLAN.md#block-connection-rules-the-path-logic)**
+* **Notice: we can not connect blocks randomly, the path must be `Upload -> Clean -> Filter -> Transform`, here is the [specific path](PLAN.md#block-connection-rules-the-path-logic)**
+### 4.3. Left Sidebar: Result Window- get [info](PLAN.md#-down-the-result-appears-here) `Result Window` part
+**The result appears, like the graphs or numerical result, with run button.**
