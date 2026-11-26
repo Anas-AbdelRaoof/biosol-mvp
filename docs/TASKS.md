@@ -1,12 +1,12 @@
 # Development Workflow
 * _**Notice: read the source/info of each part that refers to its specific details in `PLAN.md`, don't create data or things not here or in `PLAN.md`.**_
-## 1. Architecture (files and folders names, no code) and requirements.txt
+## 1. Architecture (files and folders names, no code) and requirements.txt - DONE
 **Create the architecture of the app, the folders names (and files if needed), `requirements.txt` containing the Python deps of every needed library and frameworks. Don't write any code in this step, only the architecture design.**
 ## 2. Data Analysis Engine
 **The part for data analysis parts and blocks.**
-### 2.1. File overview - get the [info](PLAN.md#file-overview) about File overview group
-* #### 2.1.1. File info - get the [info](PLAN.md#file-info) about `File info` block
-* #### 2.1.2 File ND - get [info](PLAN.md#file-nd) about `File ND` block
+### 2.1. File overview - get the [info](PLAN.md#file-overview) about File overview group - _DONE_
+* #### 2.1.1. File info - get the [info](PLAN.md#file-info) about `File info` block - _DONE_
+* #### 2.1.2 File ND - get [info](PLAN.md#file-nd) about `File ND` block - _DONE_
 ### 2.2. Cleaning and preparation - get [info](PLAN.md#cleaning-and-preparation) about this group
 * #### 2.2.1. Clean column [X] by replacing NaN with [Y] - get [info](PLAN.md#clean-column-x-by-replacing-nan-with-y) about `Cleaning column [X] by replacing NaN with [Y]` block
 * #### 2.2.2. Transform column [X] - get [info](PLAN.md#transform-cloumn-x) about `Transform column [X]` block
