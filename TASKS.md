@@ -4,19 +4,19 @@
 ## 2. Data Analysis Engine
 **The part for data analysis parts and blocks.**
 ### 2.1. File overview - get the [info](PLAN.md#file-overview) about File overview group
-* #### 2.1.1. File info - get the [info](PLAN.md#file-info-an-explanation-of-the-file-structure-like-data-types-and-number-of-rows-and-columns-it-uses-dfinfo) about `File info` block
-* #### 2.1.2 File ND - get [info](PLAN.md#file-nd-for-file-numerical-description-like-mean-it-uses-dfdescribe-after-making-the-id-the-first-column-the-index-to-avoid-calculating-it-it-should-not-show-numerical-mathematical-values-for-biologists-the-code-should-handle-it-to-show-percent-easy-understandable-values-for-biologists) about `File ND` block
+* #### 2.1.1. File info - get the [info](PLAN.md#file-info) about `File info` block
+* #### 2.1.2 File ND - get [info](PLAN.md#file-nd) about `File ND` block
 ### 2.2. Cleaning and preparation - get [info](PLAN.md#cleaning-and-preparation) about this group
 * #### 2.2.1. Clean column [X] by replacing NaN with [Y] - get [info](PLAN.md#clean-column-x-by-replacing-nan-with-y-which-x-is-list-of-columns-all-and-numerical-columns-only-which-the-biologist-can-choose-from-it-what-to-clean-and-y-is-the-type-of-cleaning-replacing-with-0-mean-or-other-cleaning-types) about `Cleaning column [X] by replacing NaN with [Y]` block
-* #### 2.2.2. Transform column [X] - get [info](PLAN.md#transform-cloumn-x-getting-log2-for-making-the-numbers-better-for-analyses-it-uses-nplog2df--1-x-is-also-the-columns-list) about `Transform column [X]` block
-* #### 2.2.3. Filter genes by [X] and [Y] - get [info](PLAN.md#filter-genes-by-x-and-y-which-x-is-the-minimum-expression-value-counts-a-gene-needs-to-have-and-y-is-the-minimum-number-of-samples-that-must-have-this-value-it-uses-df--dfdf--xsumaxis1--y-to-remove-genes-that-are-basically-noise-or-not-expressed-at-all-making-the-data-smaller-and-faster-to-analyze) about `Filter genes by [X] and [Y]` block
+* #### 2.2.2. Transform column [X] - get [info](PLAN.md#transform-cloumn-x) about `Transform column [X]` block
+* #### 2.2.3. Filter genes by [X] and [Y] - get [info](PLAN.md#filter-genes-by-x-and-y) about `Filter genes by [X] and [Y]` block
 ### 2.3. Data visualization and comparing - get [info](PLAN.md#data-visualization-and-comparing) about this group
-* #### 2.3.1. Box plot - get [info](PLAN.md#box-plot-creating-a-boxplot-for-each-column-to-compareshow-each-other) about `Box plot` block
-* #### 2.3.2. Correlation heatmap using [X] - get [info](PLAN.md#correlation-heatmap-using-x-which-x-is-the-correlation-method-pearson-spearman-etc-which-the-biologist-can-choose-from-it-uses-dfcorrmethodx-to-calculate-how-similar-the-samples-are-to-each-other-and-generates-a-colored-interactive-heatmap-using-plotly-every-visualization-block-will-use-plotly-image-it-helps-the-biologist-see-if-their-replicates-like-control_1-control_2-control_3-group-together-correctly-and-if-any-sample-is-an-outlier-that-ruins-the-experiment) about `Correlation heatmap using [x]` block
-* #### 2.3.3. PCA plot grouped by [X] - get [info](PLAN.md#pca-plot-grouped-by-x-which-x-is-the-list-of-sample-groups-or-conditions-like-control-vs-treatment-that-the-biologist-can-assign-to-color-the-dots-it-uses-sklearndecompositionpca-to-compress-the-thousands-of-genes-into-two-dimensions-and-plots-the-samples-as-dots-it-helps-the-biologist-see-if-their-samples-cluster-together-correctly-based-on-their-biological-condition-making-it-easy-to-spot-if-the-experiment-worked-or-if-there-are-any-weird-outlier-samples) about `PCA plotg rouped by [X]` block
+* #### 2.3.1. Box plot - get [info](PLAN.md#box-plot) about `Box plot` block
+* #### 2.3.2. Correlation heatmap using [X] - get [info](PLAN.md#correlation-heatmap-using-x) about `Correlation heatmap using [x]` block
+* #### 2.3.3. PCA plot grouped by [X] - get [info](PLAN.md#pca-plot-grouped-by-x) about `PCA plotg rouped by [X]` block
 ### 2.4. Data analysis - get [info](PLAN.md#data-analysis) about `Data analysis` group
-* #### 2.4.1. Differential expression (DEG) between [X] and [Y] - get [info](PLAN.md#differential-expression-deg-between-x-and-y-which-x-is-the-list-of-columns-for-the-control-group-and-y-is-the-list-of-columns-for-the-treatment-group-the-code-uses-scipystatsttest_ind-and-fold-change-calculations-to-compare-the-two-groups-and-it-should-show-a-simple-table-for-biologists-containing-the-top-significantly-upregulated-and-downregulated-genes-including-gene-id-fold-change-and-p-value) about `Differential expression (DEG) between [X] and [Y]` block
-* #### 2.4.2. Volcano plot using [X] and [Y] - get [info](PLAN.md#volcano-plot-using-x-and-y-which-x-is-the-p-value-threshold-eg-005-and-y-is-the-fold-change-threshold-eg-10-which-the-biologist-can-adjust-using-sliders-it-also-uses-plotly-to-generate-an-interactive-scatter-plot-where-the-x-axis-is-the-log2-fold-change-and-the-y-axis-is-the--log10-p-value-it-helps-the-biologist-instantly-visualize-which-genes-are-significantly-upregulated-red-dots-or-downregulated-blue-dots-making-it-easy-to-spot-the-most-biologically-important-changes) about `Volcano plot using [X] and [Y]` block
+* #### 2.4.1. Differential expression (DEG) between [X] and [Y] - get [info](PLAN.md#differential-expression-deg-between-x-and-y) about `Differential expression (DEG) between [X] and [Y]` block
+* #### 2.4.2. Volcano plot using [X] and [Y] - get [info](PLAN.md#volcano-plot-using-x-and-y) about `Volcano plot using [X] and [Y]` block
 **At the end create tests on these functions, you can use `pytest` or other libraries.**
 ## 3. AI Assistant Backend and `SYSTEM_PROMPT.md` 
 **Use my Groq API key from `.env` with `openai/gpt-oss-20b` as a chatbot, here are the details:**

@@ -9,7 +9,7 @@ _**Biosol is a drag-and-drop tool for biologists to analyze their genetic data i
 * A tiny text showing that the software is MVP/beta version.
 * Colours are white and simple red.
 ### Second page: workspace
-#### * **Right Sidebar**: containing the groups that contains blocks blocks for analyzing the genetic data, source: [Right Sidebar](#-right-sidebar-containing-the-groups-that-contains-blocks-blocks-for-analyzing-the-genetic-data-source-right-sidebar)
+#### * **Right Sidebar**: containing the groups that contain the blocks for analyzing the genetic data
 ![alt text](image-2.png)
 #### * **Canvas**: in the middle, a white space which you can drag-and-drop blocks into it, and connect them.
 #### * **Left Sidebar**: Biosol AI (using `openai/gpt-oss-20b`), your assistant helping you understand the data, specialized on genetics and biology using `SYSTEM_PROMPT.md`, a clear and very specific system prompt for its function and limits.
@@ -20,22 +20,32 @@ _**Biosol is a drag-and-drop tool for biologists to analyze their genetic data i
 **Blocks are distributed over groups as said, containing related blocks**
 #### File overview
 **The blocks in this group are coloured yellow.**
-* ##### **File info**: an explanation of the file structure (like data types and number of rows and columns), it uses `df.info()`.
-* ##### **File ND**: for file numerical description (like mean), it uses `df.describe()` after making the ID (the first column) the index to avoid calculating it, it should not show numerical mathematical values for biologists, the code should handle it to show percent easy understandable values for biologists.
+##### **File info**
+* **An explanation of the file structure (like data types and number of rows and columns), it uses `df.info()`.**
+##### **File ND**
+* **For file numerical description (like mean), it uses `df.describe()` after making the ID (the first column) the index to avoid calculating it, it should not show numerical mathematical values for biologists, the code should handle it to show percent easy understandable values for biologists.**
 #### Cleaning and preparation
 **The blocks in this group are coloured lime**
-* ##### **Clean column [X] by replacing NaN with [Y]**: which X is list of columns (all, and numerical columns only) which the biologist can choose from it what to clean, and Y is the type of cleaning (replacing with 0, mean, or other cleaning types).
-* ##### **Transform cloumn [X]**: getting log2 for making the numbers better for analyses, it uses `np.log2(df + 1)`, X is also the columns list.
-* ##### **Filter genes by [X] and [Y]**: which X is the minimum expression value (counts) a gene needs to have, and Y is the minimum number of samples that must have this value. It uses `df = df[(df >= X).sum(axis=1) >= Y]` to remove genes that are basically noise or not expressed at all, making the data smaller and faster to analyze.
+##### **Clean column [X] by replacing NaN with [Y]**
+* **Which X is list of columns (all, and numerical columns only) which the biologist can choose from it what to clean, and Y is the type of cleaning (replacing with 0, mean, or other cleaning types).**
+##### **Transform cloumn [X]**
+* **Getting log2 for making the numbers better for analyses, it uses `np.log2(df + 1)`, X is also the columns list.**
+##### **Filter genes by [X] and [Y]** 
+* **Which X is the minimum expression value (counts) a gene needs to have, and Y is the minimum number of samples that must have this value. It uses `df = df[(df >= X).sum(axis=1) >= Y]` to remove genes that are basically noise or not expressed at all, making the data smaller and faster to analyze.**
 #### Data visualization and comparing
 **The blocks in this group are coloured orange green**
-* ##### **Box plot**: creating a boxplot for each column to compare/show each other.
-* ##### **Correlation heatmap using [X]**: which X is the correlation method (Pearson, Spearman, etc.) which the biologist can choose from. It uses `df.corr(method=X)` to calculate how similar the samples are to each other, and generates a colored interactive heatmap (using Plotly, every visualization block will use Plotly) image. It helps the biologist see if their replicates (like Control_1, Control_2, Control_3) group together correctly, and if any sample is an outlier that ruins the experiment.
-* ##### **PCA plot grouped by [X]**: which X is the list of sample groups or conditions (like Control vs Treatment) that the biologist can assign to color the dots. It uses `sklearn.decomposition.PCA` to compress the thousands of genes into two dimensions and plots the samples as dots. It helps the biologist see if their samples cluster together correctly based on their biological condition, making it easy to spot if the experiment worked or if there are any weird outlier samples.
+##### **Box plot**
+* **Creating a boxplot for each column to compare/show each other.**
+##### **Correlation heatmap using [X]**
+* **Which X is the correlation method (Pearson, Spearman, etc.) which the biologist can choose from. It uses `df.corr(method=X)` to calculate how similar the samples are to each other, and generates a colored interactive heatmap (using Plotly, every visualization block will use Plotly) image. It helps the biologist see if their replicates (like Control_1, Control_2, Control_3) group together correctly, and if any sample is an outlier that ruins the experiment.**
+##### **PCA plot grouped by [X]**
+* **Which X is the list of sample groups or conditions (like Control vs Treatment) that the biologist can assign to color the dots. It uses `sklearn.decomposition.PCA` to compress the thousands of genes into two dimensions and plots the samples as dots. It helps the biologist see if their samples cluster together correctly based on their biological condition, making it easy to spot if the experiment worked or if there are any weird outlier samples.**
 #### Data analysis
 **The blocks in this group are coloured blue**
-* ##### **Differential expression (DEG) between [X] and [Y]**: which X is the list of columns for the Control group and Y is the list of columns for the Treatment group. The code uses `scipy.stats.ttest_ind` and fold-change calculations to compare the two groups, and it should show a simple table for biologists containing the top significantly upregulated and downregulated genes (including Gene ID, Fold Change, and P-value).
-* ##### **Volcano plot using [X] and [Y]**: which X is the p-value threshold (e.g., 0.05) and Y is the fold-change threshold (e.g., 1.0), which the biologist can adjust using sliders. It also uses Plotly to generate an interactive scatter plot where the x-axis is the Log2 Fold Change and the y-axis is the -Log10 P-value. It helps the biologist instantly visualize which genes are significantly upregulated (red dots) or downregulated (blue dots), making it easy to spot the most biologically important changes.
+##### **Differential expression (DEG) between [X] and [Y]**
+* **Which X is the list of columns for the Control group and Y is the list of columns for the Treatment group. The code uses `scipy.stats.ttest_ind` and fold-change calculations to compare the two groups, and it should show a simple table for biologists containing the top significantly upregulated and downregulated genes (including Gene ID, Fold Change, and P-value).**
+##### **Volcano plot using [X] and [Y]**
+* **Which X is the p-value threshold (e.g., 0.05) and Y is the fold-change threshold (e.g., 1.0), which the biologist can adjust using sliders. It also uses Plotly to generate an interactive scatter plot where the x-axis is the Log2 Fold Change and the y-axis is the -Log10 P-value. It helps the biologist instantly visualize which genes are significantly upregulated (red dots) or downregulated (blue dots), making it easy to spot the most biologically important changes.**
 ### Block Connection Rules (The "Path" Logic)
 To ensure biological accuracy and prevent errors, blocks are not randomly connectable. The canvas uses strict rules based on "Input Ports" and "Output Ports" and the **Data Type** flowing between them (similar to how Scratch uses shapes).
 
