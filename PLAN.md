@@ -1,11 +1,12 @@
 # MVP Plan
+_**Notice: follow the plan here and `TASKS.md`, don't invent details and data.**_
 _**Biosol is a drag-and-drop tool for biologists to analyze their genetic data in hours instead of weeks, instead of calling statisticians or learning programming themselves.**_
 ## UI/UX
 **When you open the app you will find these**
 ### First page: welcome and uploading the file
 * The name Biosol, small description, and file type and limits.
 * Choices to choose the genetic data file type (CSV, FASTQ, etc. CSV in this level).
-* A greenish red button appears to upload the file(s), and the file details will appear beneath it, when clicking the button a list of files types appear, but only CSV is available, which the user can choose it.
+* A red button appears to upload the file(s), and the file details will appear beneath it, when clicking the button a list of files types appear, but only CSV is available, which the user can choose it.
 * A tiny text showing that the software is MVP/beta version.
 * Colours are white and simple red.
 ### Second page: workspace
