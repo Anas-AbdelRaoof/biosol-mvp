@@ -10,9 +10,12 @@ _**Biosol is a drag-and-drop tool for biologists to analyze their genetic data i
 * A tiny text showing that the software is MVP/beta version.
 * Colours are white and simple red.
 ### Second page: workspace
-#### * **Right Sidebar**: containing the groups that contain the blocks for analyzing the genetic data
-#### * **Canvas**: in the middle, a white space which you can drag-and-drop blocks into it, and connect them.
-#### * **Left Sidebar**: the result appears here, numerical data or graphs, only one result appear. Above it a run button to show the result after drag-and-drop process.
+#### **Right Sidebar** 
+* **Containing the groups that contain the blocks for analyzing the genetic data**
+#### **Canvas**
+* **In the middle, a white space which you can drag-and-drop blocks into it, and connect them.**
+#### **Left Sidebar**
+* **The result appears here, numerical data or graphs, only one result appear. Above it a run button to show the result after drag-and-drop process.**
 ## Features
 **The features of the software in MVP/beta version**
 ### CSV analyzing: blocks

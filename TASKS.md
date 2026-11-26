@@ -30,10 +30,10 @@
 ## 4. Frontend: Second Page - Workspace
 **The actual workspace for analysis.**
 * **Source: [Second Page](PLAN.md#second-page-workspace)**
-### 4.1. Right Sidebar - get [info](PLAN.md#-right-sidebar-containing-the-groups-that-contain-the-blocks-for-analyzing-the-genetic-data) about `Right Sidebar` part
+### 4.1. Right Sidebar - get [info](PLAN.md#right-sidebar) about `Right Sidebar` part
 **Containing the groups (File overview, Cleaning and preparation, Data visualization and comparing, and Data analysis) like Scratch, each group when containing its blocks (like File info and File ND for File overview), when clicking it the blocks appear beneath it like Scratch.**
-### 4.2. Canvas - get [info](PLAN.md#-canvas-in-the-middle-a-white-space-which-you-can-drag-and-drop-blocks-into-it-and-connect-them) about `Canvas` part
+### 4.2. Canvas - get [info](PLAN.md#canvas) about `Canvas` part
 **In the middle (but above) there is a white space which the user can drag-and-drop blocks into it (you can use `React Flow` and choose the suitable tool for drag-and-drop and connecting blocks/nodes).**
 * **Notice: we can not connect blocks randomly, the path must be `Upload -> Clean -> Filter -> Transform`, here is the [specific path](PLAN.md#block-connection-rules-the-path-logic)**
-### 4.3. Left Sidebar: Result Window- get [info](PLAN.md#-down-the-result-appears-here) `Result Window` part
+### 4.3. Left Sidebar: Result Window- get [info](PLAN.md#left-sidebar) `Result Window` part
 **The result appears, like the graphs or numerical result, with run button.**
